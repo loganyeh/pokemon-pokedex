@@ -15,15 +15,62 @@ body{
     height: 100%;
     width: 100%;
     display: flex;
+    /* I THINK THAT THIS MAKES THE POKEDEX SMALLER AND IN THE MIDDLE ? ?? */
+    align-items: center;
+    justify-content: center;
+    /* OK YES I THINK IT DID DO THAT I CHANGED THE WIDTHS AND HEIGHTS IN THE POKEDEX
+    LEFT AND RIGHT SIDE 
+    SEE BELOW */
 }
 /* POKEDEX SIDES LEFT AND RIGHT */
 #container #pokedex-left-side{
     border: 3px solid red;
-    width: 50%;
-    height: 100%;
+    width: 35%;
+    height: 75%;
+    border-radius: 50px 0 0 50px;
 }
 #container #pokedex-right-side{
     border: 3px solid red;    
-    width: 50%;
-    height: 100%;
+    width: 35%;
+    height: 75%;
+    border-radius: 0 50px 50px 0;
+}
+/* POKEDEX LEFT SIDE ELEMENTS */
+#pokedex-left-side #pokemon-image{
+    border: 3px solid black;
+    border-radius: 50px 0 0 0;  
+    height: 50%;
+}
+#pokedex-left-side #pokemon-left-stats{
+    border: 3px solid black;  
+    border-radius: 0 0 0 50px;  
+    height: 50%;
+}
+/* POKEDEX RIGHT SIDE ELEMENTS */
+#pokedex-right-side #search-bar-container{
+    border: 3px solid black;
+    height: 15%;
+    border-radius: 0 50px 0 0;
+}
+#pokedex-right-side #pokemon-images{
+    border: 3px solid black;
+    height: 40%;
+}
+#pokedex-right-side #pokemon-right-stats{
+    border: 3px solid black;
+    height: 45%;
+    border-radius: 0 0 50px 0;
+}
+/* NESTED POKEDEX LEFT SIDE ELEMENTS */
+
+/* NESTED POKEDEX RIGHT SIDE ELEMENTS */
+#pokemon-images #pokemon-image-1{
+    border: 3px solid green;
+    height: 50px;
+    width: 50px;
+}
+#pokemon-images #pokemon-image-2{
+    border: 3px solid green;
+    height: 50px;
+    width: 50px;
 }
