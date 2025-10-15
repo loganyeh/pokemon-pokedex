@@ -30,7 +30,7 @@ async function getPokemon(){
     try {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/squirtle");
         const data = await response.json();
-        console.log(data);
+        console.log(data.name);
     }     
     catch (error) {
         console.error("Error:", error);
@@ -38,4 +38,3 @@ async function getPokemon(){
 }    
 
 getPokemon();
-
