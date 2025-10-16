@@ -13,7 +13,7 @@ const pokemonAPI = "https://pokeapi.co/";
 
 // EVENT LISTENERS
 inputSearchBar.addEventListener("click", () => {
-    console.log("input search bar clicked");
+    //console.log("input search bar clicked");
 });
 
 searchButton.addEventListener("click", async () => {
@@ -66,6 +66,13 @@ searchButton.addEventListener("click", async () => {
         const data = await response.json();
         const capitalizePokemonName = capitalize(data.name);
         console.log(`Searching for ${capitalizePokemonName}...`);
+        const pokemonID = data.id;
+
+        // TRY TO FIND THE DATA. ID NUMBER
+        console.log(`console.log(${data.name})`);
+        console.log(`data.id: ${data.id}`);
+        console.log(`pokemonID: ${pokemonID}`);
+        console.log(typeof pokemonID);
         
         // LOADING POKEMON NAME FEATURE
         pokemonNameTitle.innerHTML = `
