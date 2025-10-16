@@ -44,6 +44,9 @@ body{
 #pokedex-left-side #pokemon-image{
     border: 3px solid black;
     height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #pokedex-left-side #pokemon-left-stats{
     border: 3px solid ;  
@@ -104,6 +107,13 @@ body{
 }  
 .boldPokemonName{
     color: red;
+}
+#pokemon-image img{
+    border: 3px solid red;
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    object-fit: cover;
 }
 
 /* NESTED POKEDEX RIGHT SIDE ELEMENTS */

@@ -3,6 +3,7 @@
 const searchButton = document.getElementById("search-button");
 const inputSearchBar = document.getElementById("input-search-bar");
 const pokemonNameTitle = document.getElementById("pokemon-name");
+const pokemonImage = document.getElementById("pokemon-image");
 
 // VARIABLES
 const pokemonAPI = "https://pokeapi.co/";
@@ -14,7 +15,6 @@ inputSearchBar.addEventListener("click", () => {
 
 searchButton.addEventListener("click", async () => {
     
-    // GRABS VALUE FROM THE INPUT BAR
     try { 
         const inputValue = document.getElementById("input-search-bar").value.toLowerCase();
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
@@ -31,8 +31,16 @@ searchButton.addEventListener("click", async () => {
                 `;
             }, 3000);
             clearInputBar();
-        }
+        };
 
+        if(inputValue == ""){
+            pokemonNameTitle.innerHTML = `
+                <h1>Enter a Pokemon</h1>
+            `;            
+            // THIS RETURN KEYWORD EXITS FUNCTION 
+            // SO THE CODE FOLLOWING/AFTER WILL NOT RUN
+            return;
+        };
 
         // RESPONSE IS CONVERTED TO A JSON FILE FOR READABLE FOR THE IDE
         const data = await response.json();
@@ -75,7 +83,6 @@ searchButton.addEventListener("click", async () => {
     } 
 
     //console.log("search button clicked");
-
     clearInputBar();
     // clearPokemonNameTitle();
 
@@ -90,16 +97,12 @@ function clearPokemonNameTitle(){
     pokemonNameTitle.innerHTML = `
         <h1>Pokemon Pokedex</h1>
     `;
-}
+};
 
 // CAPITALIZE FIRST LETTER FUNCTION
 function capitalize(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
-// WORKING capitalize() function ✅
-// let word = "bijan"; 
-// let capitalWord = capitalize(word);
-// console.log(capitalWord);
+};
 
 // API FETCH FUNCTION REQUEST
 // VERSION 1 to FETCH AN API
