@@ -119,15 +119,13 @@ body{
 /* NESTED POKEDEX RIGHT SIDE ELEMENTS */
 
 /* #pokemon-images */
-#pokemon-images #pokemon-image-1{
+#pokemon-images #pokemon-image-1, #pokemon-images #pokemon-image-2{
     border: 3px solid green;
     height: 100%;
     width: 50%;
-}
-#pokemon-images #pokemon-image-2{
-    border: 3px solid green;
-    height: 100%;
-    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* #pokemon-right-stats */
 #pokemon-right-stats #pokemon-stats-1{
@@ -140,6 +138,15 @@ body{
     height: 100%;
     width: 50%;
     border-radius: 0 0 50px;
+}
+
+/* IMG ELEMENTS INSIDE POKEMON IMAGES */
+#pokemon-images #pokemon-image-1 img, #pokemon-images #pokemon-image-2 img{
+    border: 3px solid red;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
 
