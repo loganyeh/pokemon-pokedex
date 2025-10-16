@@ -36,15 +36,19 @@ body{
     border-radius: 0 50px 50px 0;
 }
 /* POKEDEX LEFT SIDE ELEMENTS */
-#pokedex-left-side #pokemon-image{
+#pokedex-left-side #pokemon-name{
     border: 3px solid black;
     border-radius: 50px 0 0 0;  
-    height: 50%;
+    height: 20%;
+}
+#pokedex-left-side #pokemon-image{
+    border: 3px solid black;
+    height: 40%;
 }
 #pokedex-left-side #pokemon-left-stats{
     border: 3px solid ;  
     border-radius: 0 0 0 50px;  
-    height: 50%;
+    height: 40%;
 }
 /* POKEDEX RIGHT SIDE ELEMENTS */
 #pokedex-right-side #search-bar-container{

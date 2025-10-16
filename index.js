@@ -14,23 +14,28 @@ inputSearchBar.addEventListener("click", () => {
 searchButton.addEventListener("click", async () => {
     
     // GRABS VALUE FROM THE INPUT BAR
-    // console.log(inputValue);
     try { 
         const inputValue = document.getElementById("input-search-bar").value.toLowerCase();
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
-        const data = await response.json();
+        const capitalizePokemonName = capitalize(inputValue);
 
-        console.log(data);
+        if(!response.ok){
+            console.error(`Could not fetch resource. ${inputValue} is not a Pokemon.`);
+            clearInputBar();
+        }
+
+
+        // RESPONSE IS CONVERTED TO A JSON FILE FOR READABLE FOR THE IDE
+        const data = await response.json();
+        console.log(`Searching for ${capitalizePokemonName}...`);
+        const pokemonName = data.name;
+
     }
     catch (error) {
-        console.error(`Pokemon not found`);
+        console.error(`${inputValue} is not a Pokemon`);
     } 
 
-    console.log("search button clicked");
-    // console.log(inputSearchBar.value);
-    // console.log(document.getElementById("input-search-bar").value);
-    // This is returning the value of whatever is in the search bar at the time
-    // BOTH WORK ^^
+    //console.log("search button clicked");
 
     clearInputBar();
 
@@ -40,6 +45,15 @@ function clearInputBar(){
     //console.log("cleared input bar");
     document.getElementById("input-search-bar").value = "";
 };
+
+// CAPITALIZE FIRST LETTER FUNCTION
+function capitalize(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+// WORKING capitalize() function ✅
+// let word = "bijan"; 
+// let capitalWord = capitalize(word);
+// console.log(capitalWord);
 
 // API FETCH FUNCTION REQUEST
 // VERSION 1 to FETCH AN API
