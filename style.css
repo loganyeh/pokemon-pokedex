@@ -36,15 +36,22 @@ body{
     border-radius: 0 50px 50px 0;
 }
 /* POKEDEX LEFT SIDE ELEMENTS */
-#pokedex-left-side #pokemon-image{
+#pokedex-left-side #pokemon-name{
     border: 3px solid black;
     border-radius: 50px 0 0 0;  
-    height: 50%;
+    height: 10%;
+}
+#pokedex-left-side #pokemon-image{
+    border: 3px solid black;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #pokedex-left-side #pokemon-left-stats{
     border: 3px solid ;  
     border-radius: 0 0 0 50px;  
-    height: 50%;
+    height: 45%;
 }
 /* POKEDEX RIGHT SIDE ELEMENTS */
 #pokedex-right-side #search-bar-container{
@@ -92,19 +99,33 @@ body{
     display: flex;
 }
 /* NESTED POKEDEX LEFT SIDE ELEMENTS */
+#pokemon-name h1{
+    text-align: center;
+    margin: 3px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}  
+.boldPokemonName{
+    color: red;
+}
+#pokemon-image img{
+    border: 3px solid red;
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    object-fit: cover;
+}
 
 /* NESTED POKEDEX RIGHT SIDE ELEMENTS */
 
 /* #pokemon-images */
-#pokemon-images #pokemon-image-1{
+#pokemon-images #pokemon-image-1, #pokemon-images #pokemon-image-2{
     border: 3px solid green;
     height: 100%;
     width: 50%;
-}
-#pokemon-images #pokemon-image-2{
-    border: 3px solid green;
-    height: 100%;
-    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* #pokemon-right-stats */
 #pokemon-right-stats #pokemon-stats-1{
@@ -117,6 +138,15 @@ body{
     height: 100%;
     width: 50%;
     border-radius: 0 0 50px;
+}
+
+/* IMG ELEMENTS INSIDE POKEMON IMAGES */
+#pokemon-images #pokemon-image-1 img, #pokemon-images #pokemon-image-2 img{
+    border: 3px solid red;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
 
