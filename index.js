@@ -21,6 +21,12 @@ searchButton.addEventListener("click", async () => {
     try { 
         const inputValue = document.getElementById("input-search-bar").value.toLowerCase();
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
+        // ^^ NOT WORKING WHEN PASSING A NUMBER, THE DATA TYPE IF A NUMBER 
+        // MAYBE IT NEEDS TO BE A STRING ? 
+        console.log(typeof inputValue);
+        // INPUT VALUE IS A STRING
+        
+        // console.log(`CHecled if a number works: ${response.name}`)
         
         if(!response.ok){
             console.error(`Could not fetch resource. "${inputValue}" is not a Pokemon.`);
@@ -66,6 +72,8 @@ searchButton.addEventListener("click", async () => {
         const data = await response.json();
         const capitalizePokemonName = capitalize(data.name);
         console.log(`Searching for ${capitalizePokemonName}...`);
+
+        // POKEMON ID VARIABLE
         const pokemonID = data.id;
 
         // TRY TO FIND THE DATA. ID NUMBER
@@ -73,6 +81,34 @@ searchButton.addEventListener("click", async () => {
         console.log(`data.id: ${data.id}`);
         console.log(`pokemonID: ${pokemonID}`);
         console.log(typeof pokemonID);
+        console.log(`pokemonID -1: ${pokemonID - 1}`);
+        console.log(`pokemonID CURRENT: ${pokemonID}`);
+        console.log(`pokemonID +1: ${pokemonID + 1}`);
+
+        // OK AFTER GRABBING THE ID TRY STORING THEM IN A VARIBLE
+        const prevPokemonID = String(pokemonID - 1);
+        const nextPokemonID = pokemonID + 1;
+        console.log("-------------------------");
+        console.log(`prevPokemonID: ${prevPokemonID}`);
+        console.log(`nextPokemonID: ${nextPokemonID}`);
+        console.log("TYPEOF NEXT AND PREV");
+        console.log(typeof prevPokemonID);
+        console.log(typeof nextPokemonID);
+
+        // OK NOW TRY TO USE THE POKEMON IDS AND GET THE POKEMONS PREVIOUS AND NEXT ???? 
+        // I THINK I NEED TO GRAB THE API URL ???
+
+        console.log("---------------BREAK-----------------");
+        // PREVIOUS 
+        const getPrevPokemonID = await fetch(`https://pokeapi.co/api/v2/pokemon/${prevPokemonID}`);
+        const prevData = await getPrevPokemonID.json();
+        console.log(`getPrevPokemonID: ${prevData.name}`);
+        
+        // NEXT
+        const getNextPokemonID = await fetch(`https://pokeapi.co/api/v2/pokemon/${nextPokemonID}`);
+        const nextData = await getNextPokemonID.json();
+        console.log(`getNextPokemonID: ${nextData.name}`);
+
         
         // LOADING POKEMON NAME FEATURE
         pokemonNameTitle.innerHTML = `
