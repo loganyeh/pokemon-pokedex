@@ -2,6 +2,7 @@
 // DOM ELEMENTS
 const searchButton = document.getElementById("search-button");
 const inputSearchBar = document.getElementById("input-search-bar");
+const pokemonNameTitle = document.getElementById("pokemon-name");
 
 // VARIABLES
 const pokemonAPI = "https://pokeapi.co/";
@@ -21,6 +22,14 @@ searchButton.addEventListener("click", async () => {
 
         if(!response.ok){
             console.error(`Could not fetch resource. ${inputValue} is not a Pokemon.`);
+            pokemonNameTitle.innerHTML = `
+                <h1 class="boldPokemonName">ERROR</h1>
+            `;
+            setTimeout(() => {
+                pokemonNameTitle.innerHTML = `
+                    <h1>ERROR</h1>
+                `;
+            }, 3000);
             clearInputBar();
         }
 
@@ -29,6 +38,36 @@ searchButton.addEventListener("click", async () => {
         const data = await response.json();
         console.log(`Searching for ${capitalizePokemonName}...`);
         const pokemonName = data.name;
+        
+        // LOADING POKEMON NAME FEATURE
+        pokemonNameTitle.innerHTML = `
+            <h1>Searching</h1>
+        `;
+        setTimeout(() => {
+            pokemonNameTitle.innerHTML = `
+            <h1>Searching .</h1>
+        `;
+        }, 1000);
+        setTimeout(() => {
+            pokemonNameTitle.innerHTML = `
+            <h1>Searching ..</h1>
+        `;
+        }, 1500);
+        setTimeout(() => {
+            pokemonNameTitle.innerHTML = `
+            <h1>Searching ...</h1>
+        `;
+        }, 2000);
+        setTimeout(() => {
+            pokemonNameTitle.innerHTML = `
+            <h1 class="boldPokemonName">${capitalizePokemonName}</h1>
+        `;
+        }, 2500);
+        setTimeout(() => {
+            pokemonNameTitle.innerHTML = `
+            <h1>${capitalizePokemonName}</h1>
+        `;
+        }, 5500);
 
     }
     catch (error) {
@@ -38,6 +77,7 @@ searchButton.addEventListener("click", async () => {
     //console.log("search button clicked");
 
     clearInputBar();
+    // clearPokemonNameTitle();
 
 });
 
@@ -45,6 +85,12 @@ function clearInputBar(){
     //console.log("cleared input bar");
     document.getElementById("input-search-bar").value = "";
 };
+
+function clearPokemonNameTitle(){
+    pokemonNameTitle.innerHTML = `
+        <h1>Pokemon Pokedex</h1>
+    `;
+}
 
 // CAPITALIZE FIRST LETTER FUNCTION
 function capitalize(string){

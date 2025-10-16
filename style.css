@@ -39,16 +39,16 @@ body{
 #pokedex-left-side #pokemon-name{
     border: 3px solid black;
     border-radius: 50px 0 0 0;  
-    height: 20%;
+    height: 10%;
 }
 #pokedex-left-side #pokemon-image{
     border: 3px solid black;
-    height: 40%;
+    height: 45%;
 }
 #pokedex-left-side #pokemon-left-stats{
     border: 3px solid ;  
     border-radius: 0 0 0 50px;  
-    height: 40%;
+    height: 45%;
 }
 /* POKEDEX RIGHT SIDE ELEMENTS */
 #pokedex-right-side #search-bar-container{
@@ -96,6 +96,15 @@ body{
     display: flex;
 }
 /* NESTED POKEDEX LEFT SIDE ELEMENTS */
+#pokemon-name h1{
+    text-align: center;
+    margin: 3px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}  
+.boldPokemonName{
+    color: red;
+}
 
 /* NESTED POKEDEX RIGHT SIDE ELEMENTS */
 
