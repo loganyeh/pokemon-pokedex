@@ -77,13 +77,18 @@ searchButton.addEventListener("click", async () => {
         const getPrevPokemonID = await fetch(`https://pokeapi.co/api/v2/pokemon/${prevPokemonID}`);
         const prevData = await getPrevPokemonID.json();
         console.log(`getPrevPokemonID: ${prevData.name}`);
+
+        // GET PREV POKEMON SPRITES
+        pokemonSprite1 = prevData.sprites.front_default;
         
         // NEXT
         const getNextPokemonID = await fetch(`https://pokeapi.co/api/v2/pokemon/${nextPokemonID}`);
         const nextData = await getNextPokemonID.json();
         console.log(`getNextPokemonID: ${nextData.name}`);
 
-        
+        // GET NEXT POKEMON SPRITES
+        const pokemonSprite2 = nextData.sprites.front_default;
+ 
         // LOADING POKEMON NAME FEATURE
         pokemonNameTitle.innerHTML = `
                 <h1>Searching</h1>
@@ -121,11 +126,11 @@ searchButton.addEventListener("click", async () => {
                 <img src="${data.sprites.front_default}"/>
             `;
             pokemonImage1.innerHTML = `
-            <img src="" alt="either previous or next pokemon in pokedex"/>
-        `
-        pokemonImage2.innerHTML = `
-            <img src="" alt="either previous or next pokemon in pokedex"/>
-        `
+                <img src="${pokemonSprite1}"/> 
+            `;
+            pokemonImage2.innerHTML = `
+                <img src="${pokemonSprite2}"/>
+            `;
         }, 1000);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
