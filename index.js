@@ -7,6 +7,7 @@ const pokemonImage = document.getElementById("pokemon-image");
 const pokemonImage1 = document.getElementById("pokemon-image-1");
 const pokemonImage2 = document.getElementById("pokemon-image-2");
 const pokemonImgElement = document.getElementById("pokemon-image-element");
+const currentStatsContainer = document.getElementById("current-stats-container");
 
 // VARIABLES
 const pokemonAPI = "https://pokeapi.co/";
@@ -62,12 +63,17 @@ searchButton.addEventListener("click", async () => {
             return;
         };
         
+        // CURRENT SEARCH POKEMON
         const data = await response.json();
         const capitalizePokemonName = capitalize(data.name);
         console.log(`Searching for ${capitalizePokemonName}...`);
 
         // POKEMON ID VARIABLE
         const pokemonID = data.id;
+        const pokemonMove = capitalize(data.moves[0].move.name);
+        const pokemonType = capitalize(data.types[0].type.name);
+        const pokemonHeight = data.height;
+        const pokemonWeight = data.weight;
 
         // I THINK BOTH STRING AND NUMBER WORKS ???
         const prevPokemonID = String(pokemonID - 1);
@@ -106,6 +112,14 @@ searchButton.addEventListener("click", async () => {
             <h3 id="next-pokemon-title">.</h3>
             <img src="loading.png"/>
             <h4 id="next-pokemon-id">.</h4>
+        `;
+        currentStatsContainer.innerHTML = `
+            <ul>
+                <li><span class="bolded-stats">Move:</span> ${pokemonMove}</li>
+                <li><span class="bolded-stats">Type:</span> ${pokemonType}</li>
+                <li><span class="bolded-stats">Height:</span> ${pokemonHeight}</li>
+                <li><span class="bolded-stats">Weight:</span> ${pokemonWeight}</li>
+            </ul>
         `;
 
         setTimeout(() => {
@@ -202,6 +216,7 @@ searchButton.addEventListener("click", async () => {
                 <img src="${pokemonSprite2}"/>
                 <h4 id="next-pokemon-id">ID: ${nextData.id}</h4>
             `;
+
         }, 2000);
     
     }
