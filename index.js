@@ -98,14 +98,14 @@ searchButton.addEventListener("click", async () => {
             <h3 id="current-pokemon-id">ID: </h3>
         `;
         pokemonImage1.innerHTML = `
-            <h3 id="previous-pokemon-title"></h3>
+            <h3 id="previous-pokemon-title">.</h3>
             <img src="loading.png"/>
-            <h4 id="previous-pokemon-id"></h4>
+            <h4 id="previous-pokemon-id">.</h4>
         `;
         pokemonImage2.innerHTML = `
-            <h3 id="next-pokemon-title"></h3>
+            <h3 id="next-pokemon-title">.</h3>
             <img src="loading.png"/>
-            <h4 id="next-pokemon-id"></h4>
+            <h4 id="next-pokemon-id">.</h4>
         `;
 
         setTimeout(() => {
@@ -157,7 +157,7 @@ searchButton.addEventListener("click", async () => {
             pokemonImage1.innerHTML = `
                 <h3 id="previous-pokemon-title">...</h3>
                 <img src="loading.png"/>
-                <h4 id="previous-pokemon-id"></h4>
+                <h4 id="previous-pokemon-id">...</h4>
             `;
             pokemonImage2.innerHTML = `
                 <h3 id="next-pokemon-title">...</h3>
