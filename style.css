@@ -211,7 +211,7 @@ body{
     font-weight: 600;
 }
 
-#pokemon-stats-1 #rats, #pokemon-stats-2 #rats{
+#pokemon-stats-1 .rats, #pokemon-stats-2 .rats{
     border: 3px solid red;
     border-radius: 25px;
     margin-left: 20px;
