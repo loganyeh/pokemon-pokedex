@@ -95,6 +95,7 @@ searchButton.addEventListener("click", async () => {
             `;
         pokemonImage.innerHTML = `
             <img src="loading.png"/>
+            <h3 id="current-pokemon-id">ID: </h3>
         `
         pokemonImage1.innerHTML = `
             <img src="loading.png"/>
@@ -107,23 +108,36 @@ searchButton.addEventListener("click", async () => {
             pokemonNameTitle.innerHTML = `
                 <h1>Searching .</h1>
             `;
+            pokemonImage.innerHTML = `
+                <img src="loading.png"/>
+                <h3 id="current-pokemon-id">ID: .</h3>
+            `;
         }, 250);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>Searching ..</h1>
+            `;
+            pokemonImage.innerHTML = `
+                <img src="loading.png"/>
+                <h3 id="current-pokemon-id">ID: ..</h3>
             `;
         }, 500);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>Searching ...</h1>
             `;
+            pokemonImage.innerHTML = `
+                <img src="loading.png"/>
+                <h3 id="current-pokemon-id">ID: ...</h3>
+            `;
         }, 750);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
-                <h1 class="boldPokemonName">${capitalizePokemonName}</h1>
+                <h1 class="bold-pokemon-name">${capitalizePokemonName}</h1>
             `;
             pokemonImage.innerHTML = `
                 <img src="${data.sprites.front_default}"/>
+                <h3 id="current-pokemon-id" class="bold-pokemon-name">ID: ${data.id}</h3>
             `;
             pokemonImage1.innerHTML = `
                 <img src="${pokemonSprite1}"/> 
@@ -135,6 +149,10 @@ searchButton.addEventListener("click", async () => {
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>${capitalizePokemonName}</h1>
+            `;
+            pokemonImage.innerHTML = `
+                <img src="${data.sprites.front_default}"/>
+                <h3 id="current-pokemon-id">ID: ${data.id}</h3>
             `;
         }, 2000);
     
