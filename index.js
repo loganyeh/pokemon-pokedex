@@ -79,7 +79,7 @@ searchButton.addEventListener("click", async () => {
         console.log(`getPrevPokemonID: ${prevData.name}`);
 
         // GET PREV POKEMON SPRITES
-        pokemonSprite1 = prevData.sprites.front_default;
+        const pokemonSprite1 = prevData.sprites.front_default;
         
         // NEXT
         const getNextPokemonID = await fetch(`https://pokeapi.co/api/v2/pokemon/${nextPokemonID}`);
@@ -91,50 +91,116 @@ searchButton.addEventListener("click", async () => {
  
         // LOADING POKEMON NAME FEATURE
         pokemonNameTitle.innerHTML = `
-                <h1>Searching</h1>
-            `;
+            <h1>Searching</h1>
+        `;
         pokemonImage.innerHTML = `
             <img src="loading.png"/>
-        `
+            <h3 id="current-pokemon-id">ID: </h3>
+        `;
         pokemonImage1.innerHTML = `
+            <h3 id="previous-pokemon-title">.</h3>
             <img src="loading.png"/>
-        `
+            <h4 id="previous-pokemon-id">.</h4>
+        `;
         pokemonImage2.innerHTML = `
+            <h3 id="next-pokemon-title">.</h3>
             <img src="loading.png"/>
-        `
+            <h4 id="next-pokemon-id">.</h4>
+        `;
 
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>Searching .</h1>
+            `;
+            pokemonImage.innerHTML = `
+                <img src="loading.png"/>
+                <h3 id="current-pokemon-id">ID: .</h3>
+            `;
+            pokemonImage1.innerHTML = `
+                <h3 id="previous-pokemon-title">.</h3>
+                <img src="loading.png"/>
+                <h4 id="previous-pokemon-id">.</h4>
+            `;
+            pokemonImage2.innerHTML = `
+                <h3 id="next-pokemon-title">.</h3>
+                <img src="loading.png"/>
+                <h4 id="next-pokemon-id">.</h4>
             `;
         }, 250);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>Searching ..</h1>
             `;
+            pokemonImage.innerHTML = `
+                <img src="loading.png"/>
+                <h3 id="current-pokemon-id">ID: ..</h3>
+            `;
+            pokemonImage1.innerHTML = `
+                <h3 id="previous-pokemon-title">..</h3>
+                <img src="loading.png"/>
+                <h4 id="previous-pokemon-id">..</h4>
+            `;
+            pokemonImage2.innerHTML = `
+                <h3 id="next-pokemon-title">..</h3>
+                <img src="loading.png"/>
+                <h4 id="next-pokemon-id">..</h4>
+            `;
         }, 500);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>Searching ...</h1>
             `;
+            pokemonImage.innerHTML = `
+                <img src="loading.png"/>
+                <h3 id="current-pokemon-id">ID: ...</h3>
+            `;
+            pokemonImage1.innerHTML = `
+                <h3 id="previous-pokemon-title">...</h3>
+                <img src="loading.png"/>
+                <h4 id="previous-pokemon-id">...</h4>
+            `;
+            pokemonImage2.innerHTML = `
+                <h3 id="next-pokemon-title">...</h3>
+                <img src="loading.png"/>
+                <h4 id="next-pokemon-id">...</h4>
+            `;
         }, 750);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
-                <h1 class="boldPokemonName">${capitalizePokemonName}</h1>
+                <h1 class="bold-pokemon-name">${capitalizePokemonName}</h1>
             `;
             pokemonImage.innerHTML = `
                 <img src="${data.sprites.front_default}"/>
+                <h3 id="current-pokemon-id" class="bold-pokemon-name">ID: ${data.id}</h3>
             `;
             pokemonImage1.innerHTML = `
-                <img src="${pokemonSprite1}"/> 
+                <h3 id="previous-pokemon-title" class="bold-pokemon-name">${capitalize(prevData.name)}</h3>
+                <img src="${pokemonSprite1}"/>
+                <h4 id="previous-pokemon-id" class="bold-pokemon-name">ID: ${prevData.id}</h4>
             `;
             pokemonImage2.innerHTML = `
+                <h3 id="next-pokemon-title" class="bold-pokemon-name">${capitalize(nextData.name)}</h3>
                 <img src="${pokemonSprite2}"/>
+                <h4 id="next-pokemon-id" class="bold-pokemon-name">ID: ${nextData.id}</h4>
             `;
         }, 1000);
         setTimeout(() => {
             pokemonNameTitle.innerHTML = `
                 <h1>${capitalizePokemonName}</h1>
+            `;
+            pokemonImage.innerHTML = `
+                <img src="${data.sprites.front_default}"/>
+                <h3 id="current-pokemon-id">ID: ${data.id}</h3>
+            `;
+            pokemonImage1.innerHTML = `
+                <h3 id="previous-pokemon-title">${capitalize(prevData.name)}</h3>
+                <img src="${pokemonSprite1}"/>
+                <h4 id="previous-pokemon-id">ID: ${prevData.id}</h4>
+            `;
+            pokemonImage2.innerHTML = `
+                <h3 id="next-pokemon-title">${capitalize(nextData.name)}</h3>
+                <img src="${pokemonSprite2}"/>
+                <h4 id="next-pokemon-id">ID: ${nextData.id}</h4>
             `;
         }, 2000);
     

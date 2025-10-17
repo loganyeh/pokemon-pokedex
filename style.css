@@ -45,6 +45,7 @@ body{
     border: 3px solid black;
     height: 45%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -105,7 +106,7 @@ body{
     font-family: "Poppins", sans-serif;
     font-weight: 500;
 }  
-.boldPokemonName{
+.bold-pokemon-name{
     color: red;
 }
 #pokemon-image img{
@@ -115,9 +116,32 @@ body{
     border-radius: 25px;
     object-fit: cover;
 }
+#pokemon-image #current-pokemon-id{
+    margin-top: 5px;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
 
 /* NESTED POKEDEX RIGHT SIDE ELEMENTS */
-
+#pokemon-image-1 #previous-pokemon-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+#pokemon-image-1 #previous-pokemon-id{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+}
+#pokemon-image-2 #next-pokemon-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+#pokemon-image-2 #next-pokemon-id{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+}
 /* #pokemon-images */
 #pokemon-images #pokemon-image-1, #pokemon-images #pokemon-image-2{
     border: 3px solid green;
@@ -126,6 +150,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 /* #pokemon-right-stats */
 #pokemon-right-stats #pokemon-stats-1{
