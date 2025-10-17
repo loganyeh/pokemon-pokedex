@@ -8,6 +8,8 @@ const pokemonImage1 = document.getElementById("pokemon-image-1");
 const pokemonImage2 = document.getElementById("pokemon-image-2");
 const pokemonImgElement = document.getElementById("pokemon-image-element");
 const currentStatsContainer = document.getElementById("current-stats-container");
+const rats1 = document.getElementById("rats-1");
+const rats2 = document.getElementById("rats-2");
 
 // VARIABLES
 const pokemonAPI = "https://pokeapi.co/";
@@ -86,6 +88,10 @@ searchButton.addEventListener("click", async () => {
 
         // GET PREV POKEMON SPRITES
         const pokemonSprite1 = prevData.sprites.front_default;
+        const rats1Move = capitalize(prevData.moves[0].move.name);
+        const rats1Type = capitalize(prevData.types[0].type.name);
+        const rats1Height = prevData.height;
+        const rats1Weight = prevData.weight;
         
         // NEXT
         const getNextPokemonID = await fetch(`https://pokeapi.co/api/v2/pokemon/${nextPokemonID}`);
@@ -94,6 +100,10 @@ searchButton.addEventListener("click", async () => {
 
         // GET NEXT POKEMON SPRITES
         const pokemonSprite2 = nextData.sprites.front_default;
+        const rats2Move = capitalize(nextData.moves[0].move.name);
+        const rats2Type = capitalize(nextData.types[0].type.name);
+        const rats2Height = nextData.height;
+        const rats2Weight = nextData.weight;
  
         // LOADING POKEMON NAME FEATURE
         pokemonNameTitle.innerHTML = `
@@ -119,6 +129,22 @@ searchButton.addEventListener("click", async () => {
                 <li><span class="bolded-stats">Type:</span> ${pokemonType}</li>
                 <li><span class="bolded-stats">Height:</span> ${pokemonHeight}</li>
                 <li><span class="bolded-stats">Weight:</span> ${pokemonWeight}</li>
+            </ul>
+        `;
+        rats1.innerHTML = `
+            <ul>
+                <li><span class="bolded-stats">Move:</span> ${rats1Move}</li>
+                <li><span class="bolded-stats">Type:</span> ${rats1Type}</li>
+                <li><span class="bolded-stats">Heigh</span>t: ${rats1Height}</li>
+                <li><span class="bolded-stats">Weight</span>: ${rats1Weight}</li>
+            </ul>
+        `;
+        rats2.innerHTML = `
+            <ul>
+                <li><span class="bolded-stats">Move:</span> ${rats2Move}</li>
+                <li><span class="bolded-stats">Type:</span> ${rats2Type}</li>
+                <li><span class="bolded-stats">Heigh</span>t: ${rats2Height}</li>
+                <li><span class="bolded-stats">Weight</span>: ${rats2Weight}</li>
             </ul>
         `;
 
